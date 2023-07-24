@@ -18,9 +18,9 @@ timezone: Greenwich Mean Time
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: My blog
+title: Kwaku's thoughts
 
-tagline: A documentation of my learnings
+tagline: A documentation of my learnings.
 
 description: >- # used by seo meta and the atom feed
   A little documentation of my journey in rabbit holes
