@@ -13,14 +13,14 @@ baseurl: ""
 lang: en
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Greenwich Mean Time
+timezone: Africa/Accra
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
 title: Kwaku's thoughts
 
-tagline: A documentation of my learnings.
+tagline: My blog, my rules
 
 description: >- # used by seo meta and the atom feed
   A little documentation of my journey in rabbit holes
