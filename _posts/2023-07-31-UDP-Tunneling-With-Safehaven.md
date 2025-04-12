@@ -79,7 +79,3 @@ A demo of the application can be found [here](https://www.youtube.com/watch?v=BJ
 Currently, packets are not being encrypted within the `UDP` tunnel so packet sniffing over the internet is possible. It is encouraged to use this over a protocol like `SSH`
 
 Edit: Now supports encrytion with WireGuard!
-
-# Future projects
-
-I would like to build an `eBPF` based solution so we eliminate the kernel to userspace crossing and handle all operations inside the kernel, and perform benchmarks against this approach :)
