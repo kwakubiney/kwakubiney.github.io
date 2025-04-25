@@ -1,5 +1,5 @@
 ---
-title: Stop Letting Algorithms Define Your Relationships
+title: Apps Tell Us Who Matters Now?
 date: 2025-04-12 22:35:00 +0000
 categories: [Misc]
 tags: [Misc]
