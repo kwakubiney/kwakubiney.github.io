@@ -5,8 +5,15 @@ categories: [Misc]
 tags: [Misc]
 ---
 
-Why do we give social media so much power over our lives? I’m fairly young, but I’ve had a good experience of life without social media as it exists today. There was a time when we gauged how close certain friends were using much more realistic metrics—but it seems that’s lost among the youth now.
-I recently got into an argument with a friend, mainly because she was not my number one best friend on Snapchat, and I was very confused. If you don’t use Snapchat a lot, you probably won’t know what I’m talking about, so here’s some brief context.
-Social media platforms like Snapchat assign “best friend” tags to people you interact with, based on some algorithm that obviously isn’t public. Now, was this person wrong for being jealous? Maybe not. But I’m alarmed at the level of trust and reliance people place on such tagging to make real life decisions.
-I’m not sure how the tagging works exactly, but the more you interact with someone, the higher they appear on your best friend list. My issue is with Snapchat. Judging who my best friend is based solely on conversation frequency is weird. Conversations have so much more depth to them—context matters.
-Overall, I just feel like I should be able to opt out of that feature entirely, so I don’t appear on anyone’s best friend list and no one appears on mine. I can only control what I can control, so I’ve deleted Snapchat and ended the friendship.
+A recent event got me thinking. Why do we give social media that much power over our lives? I’m fairly young, but I’ve had an experience of life without social media as it exists today. There was a time when we gauged how close certain friends were using more realistic metrics. Or at least I thought we were.
+
+A friend recently got into an argument with their real life bestfriend, mainly because one was not the other's number one best friend on Snapchat, leaving my friend very confused. If you don’t use Snapchat a lot, you probably won’t know what I’m talking about, so here’s some brief context. Snapchat assigns “best friend” tags to people you interact with, based on some algorithm that isn't public.
+
+Now, was the person who got jealous wrong? Maybe not. But it's alarming to witness the level of trust and reliance a person can place on such tagging to make real life decisions and judgments. I, for one, am not sure how exactly the tagging works because I do not work at Snapchat, but the more you interact with someone, the higher they appear on their best friend list. Yes, there's a ranking as well, absurd.
+
+My whole wahala is with Snapchat. Judging who someone's best friend is, based solely on conversation frequency, is weird. Conversations have so much more depth to them, and context matters in every conversation*. The whole gist of such tagging is uncalled for and should be an opt-in feature.
+
+Well, enough of my ranting. It is probably not that deep. I can only control what I can control, so I’ve deleted Snapchat. My friend is, on the other hand, still treading the considerate route, soothing the ego of a spoilt, immature b*at.
+
+
+*Basing it on the assumption that Snapchat does not assign such tags based on the actual content of the conversation.
