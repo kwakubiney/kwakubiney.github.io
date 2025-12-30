@@ -127,6 +127,14 @@ collections:
   tabs:
     output: true
     sort_by: order
+  private_notes:
+    output: true
+    permalink: /private-notes/:title/
+
+# Supabase configuration for private notes
+supabase:
+  url: "https://nqciobbqqybclinljlsl.supabase.co"
+  anon_key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5xY2lvYmJxcXliY2xpbmxqbHNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0MDQ3NjgsImV4cCI6MjA4MDk4MDc2OH0.zeegZAh_L56fEaSdjF6XD7fptbf8IVhLXAxAoVvmtsY"
 
 defaults:
   - scope:

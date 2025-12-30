@@ -1,0 +1,119 @@
+---
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  {% include sidebar.html %}
+  
+  <div id="main-wrapper" class="d-flex justify-content-center">
+    <div class="container">
+      <article id="private-note-content">
+        <header>
+          <h1>{{ page.title }}</h1>
+          <p class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+              {{ page.date | date: "%B %d, %Y" }}
+            </time>
+          </p>
+        </header>
+
+        <div id="auth-check">
+          <p>Checking access...</p>
+        </div>
+
+        <div id="locked-content" style="display: none;">
+          <div class="locked-notice">
+            <div class="lock-icon">🔒</div>
+            <h2>This note is private</h2>
+            <p>You need to be an approved reader to view this content.</p>
+            <a href="{{ '/private-notes/' | relative_url }}" class="btn">Request Access</a>
+          </div>
+        </div>
+
+        <div id="note-content" style="display: none;">
+          {{ content }}
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <style>
+    .locked-notice {
+      text-align: center;
+      padding: 3rem;
+      background: var(--card-bg, #f9f9f9);
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    
+    .locked-notice .lock-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    
+    .locked-notice .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 1rem;
+      transition: transform 0.2s;
+    }
+    
+    .locked-notice .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    #note-content {
+      line-height: 1.8;
+    }
+  </style>
+
+  <script>
+    const SUPABASE_URL = '{{ site.supabase.url }}';
+    const SUPABASE_ANON_KEY = '{{ site.supabase.anon_key }}';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function checkNoteAccess() {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      document.getElementById('auth-check').style.display = 'none';
+      
+      if (session) {
+        const { data: approved } = await supabase
+          .from('approved_users')
+          .select('email')
+          .eq('email', session.user.email)
+          .single();
+        
+        if (approved) {
+          document.getElementById('note-content').style.display = 'block';
+        } else {
+          document.getElementById('locked-content').style.display = 'block';
+        }
+      } else {
+        document.getElementById('locked-content').style.display = 'block';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', checkNoteAccess);
+    
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        checkNoteAccess();
+      }
+    });
+  </script>
+
+  {% include footer.html %}
+</body>
+</html>
