@@ -13,12 +13,14 @@ order: 6
   <div id="notes-list" class="notes-list" style="display: none;">
     <h2>📝 My Private Notes</h2>
     <p class="notes-intro">These are my personal thoughts and reflections. Thanks for being part of my trusted circle!</p>
-    <ul id="notes-ul"></ul>
-  </div>
-
-  <div id="note-view" class="note-view" style="display: none;">
-    <button onclick="showNotesList()" class="back-btn">← Back to notes</button>
-    <article id="note-content"></article>
+    <ul>
+      {% for note in site.private_notes %}
+      <li>
+        <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+        <span class="note-date">{{ note.date | date: "%B %d, %Y" }}</span>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 
   <div id="request-access" class="request-section" style="display: none;">
@@ -46,14 +48,11 @@ order: 6
 </div>
 
 <style>
-.auth-section, .request-section, .pending-section, .notes-list, .note-view {
-  max-width: 600px;
+.auth-section, .request-section, .pending-section, .notes-list {
+  max-width: 500px;
   margin: 2rem auto;
-  padding: 2rem;
-}
-
-.auth-section, .request-section, .pending-section {
   text-align: center;
+  padding: 2rem;
 }
 
 .lock-icon, .pending-icon {
@@ -108,6 +107,7 @@ order: 6
 .notes-list ul {
   list-style: none;
   padding: 0;
+  text-align: left;
 }
 
 .notes-list li {
@@ -115,16 +115,12 @@ order: 6
   margin: 0.5rem 0;
   background: var(--card-bg, #f9f9f9);
   border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.notes-list li:hover {
-  transform: translateX(4px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.notes-list li .note-title {
+.notes-list li a {
   font-weight: 500;
   color: var(--link-color, #667eea);
 }
@@ -132,46 +128,19 @@ order: 6
 .note-date {
   font-size: 0.85rem;
   color: var(--text-muted, #888);
-  display: block;
-  margin-top: 0.25rem;
 }
 
 .notes-intro {
   color: var(--text-muted, #666);
   margin-bottom: 1.5rem;
 }
-
-.back-btn {
-  background: none;
-  border: none;
-  color: var(--link-color, #667eea);
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 0.5rem 0;
-  margin-bottom: 1rem;
-}
-
-.back-btn:hover {
-  text-decoration: underline;
-}
-
-#note-content {
-  line-height: 1.8;
-}
-
-#note-content h1 {
-  margin-bottom: 1rem;
-}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 const SUPABASE_URL = '{{ site.supabase.url }}';
 const SUPABASE_ANON_KEY = '{{ site.supabase.anon_key }}';
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-let currentNotes = [];
 
 async function checkAuth() {
   const { data: { session } } = await supabase.auth.getSession();
@@ -185,7 +154,6 @@ async function checkAuth() {
       .single();
     
     if (approved) {
-      await loadNotes();
       showNotesList();
     } else {
       showPendingApproval();
@@ -195,50 +163,9 @@ async function checkAuth() {
   }
 }
 
-async function loadNotes() {
-  const { data: notes, error } = await supabase
-    .from('notes')
-    .select('id, slug, title, created_at')
-    .order('created_at', { ascending: false });
-  
-  if (error) {
-    console.error('Error loading notes:', error);
-    return;
-  }
-  
-  currentNotes = notes;
-  const ul = document.getElementById('notes-ul');
-  ul.innerHTML = notes.map(note => `
-    <li onclick="viewNote('${note.slug}')">
-      <span class="note-title">${note.title}</span>
-      <span class="note-date">${new Date(note.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-    </li>
-  `).join('');
-}
-
-async function viewNote(slug) {
-  const { data: note, error } = await supabase
-    .from('notes')
-    .select('*')
-    .eq('slug', slug)
-    .single();
-  
-  if (error || !note) {
-    console.error('Error loading note:', error);
-    return;
-  }
-  
-  const contentDiv = document.getElementById('note-content');
-  contentDiv.innerHTML = marked.parse(note.content);
-  
-  document.getElementById('notes-list').style.display = 'none';
-  document.getElementById('note-view').style.display = 'block';
-}
-
 function showNotesList() {
   document.getElementById('auth-status').style.display = 'none';
   document.getElementById('notes-list').style.display = 'block';
-  document.getElementById('note-view').style.display = 'none';
   document.getElementById('request-access').style.display = 'none';
   document.getElementById('pending-approval').style.display = 'none';
 }
@@ -246,7 +173,6 @@ function showNotesList() {
 function showRequestAccess() {
   document.getElementById('auth-status').style.display = 'none';
   document.getElementById('notes-list').style.display = 'none';
-  document.getElementById('note-view').style.display = 'none';
   document.getElementById('request-access').style.display = 'block';
   document.getElementById('pending-approval').style.display = 'none';
 }
@@ -254,7 +180,6 @@ function showRequestAccess() {
 function showPendingApproval() {
   document.getElementById('auth-status').style.display = 'none';
   document.getElementById('notes-list').style.display = 'none';
-  document.getElementById('note-view').style.display = 'none';
   document.getElementById('request-access').style.display = 'none';
   document.getElementById('pending-approval').style.display = 'block';
 }
@@ -279,11 +204,11 @@ async function requestAccess() {
       .from('access_requests')
       .insert({ email: email, status: 'pending' });
     
-    if (insertError && insertError.code !== '23505') {
+    if (insertError && insertError.code !== '23505') { // Ignore duplicate
       throw insertError;
     }
     
-    // Send magic link
+    // Send magic link (user will get email)
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email,
       options: {
