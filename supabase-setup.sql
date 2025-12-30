@@ -36,3 +36,46 @@ CREATE POLICY "Users can check if approved" ON approved_users
 
 -- 7. Create function to notify you of new requests (optional webhook)
 -- You'll set up the actual webhook in Supabase Dashboard > Database > Webhooks
+
+-- ========================================
+-- NOTES STORAGE (private note content)
+-- ========================================
+
+-- 8. Private Notes Table
+CREATE TABLE IF NOT EXISTS notes (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  slug TEXT UNIQUE NOT NULL,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL, -- Markdown content
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- 9. Enable RLS on notes
+ALTER TABLE notes ENABLE ROW LEVEL SECURITY;
+
+-- 10. Only approved users can read notes
+CREATE POLICY "Approved users can read notes" ON notes
+  FOR SELECT USING (
+    EXISTS (
+      SELECT 1 FROM approved_users 
+      WHERE email = auth.jwt() ->> 'email'
+    )
+  );
+
+-- 11. Insert a sample note
+INSERT INTO notes (slug, title, content) VALUES (
+  'welcome',
+  'Welcome to My Private Notes',
+  '# Welcome!
+
+This is my private corner of the internet. Thanks for being here.
+
+## What you''ll find
+
+- Personal reflections
+- Work-in-progress ideas  
+- Things I''m learning
+
+Feel free to reach out if anything resonates!'
+);

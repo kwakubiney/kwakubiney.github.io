@@ -127,9 +127,6 @@ collections:
   tabs:
     output: true
     sort_by: order
-  private_notes:
-    output: true
-    permalink: /private-notes/:title/
 
 # Supabase configuration for private notes
 supabase:
