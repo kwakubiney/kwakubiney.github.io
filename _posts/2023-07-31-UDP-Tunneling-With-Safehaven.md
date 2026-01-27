@@ -75,7 +75,7 @@ Yes, the server-side application maintains a concurrent map that keeps track of 
 
 A demo of the application can be found [here](https://www.youtube.com/watch?v=BJcXyx5ae1Ac) and the source is free for all to view on [here](https://github.com/kwakubiney/safehaven)
 
-# Limitations
-Currently, packets are not being encrypted within the `UDP` tunnel so packet sniffing over the internet is possible. It is encouraged to use this over a protocol like `SSH`
+~~# Limitations~~
+~~Currently, packets are not being encrypted within the `UDP` tunnel so packet sniffing over the internet is possible.~~
 
 Edit: Now supports encrytion with WireGuard!
