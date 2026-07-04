@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Esther</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+
+      <section id="introScreen" class="intro-screen">
+        <div class="wash wash-left"></div>
+        <div class="wash wash-right"></div>
+        <div class="intro-card">
+          <p class="kicker">for esther</p>
+          <h1>a little collection<br>of thoughts</h1>
+          <p class="intro-sub">of us. the parts i want to keep close.</p>
+          <p class="intro-note">some are text excerpts from our conversations across the years, some are just thoughts that come to mind. when something makes me think of you, i put it here. so my brain doesn't have to go far to find the things that make me happy. i update this as and when.</p>
+          <button id="startButton" class="primary-btn" type="button">begin</button>
+        </div>
+      </section>
+
+      <section id="slideScreen" class="slide-screen hidden">
+        <div class="slide-top">
+          <span id="slideCounter" class="meta-pill">1 / 13</span>
+          <span id="slideDate" class="meta-pill">Aug 2024</span>
+        </div>
+
+        <article id="slideCard" class="slide-card">
+          <p id="slideKicker" class="slide-kicker"></p>
+          <h2 id="slideTitle"></h2>
+          <p id="slideQuote" class="quote"></p>
+          <p id="slideSpeaker" class="speaker"></p>
+
+          <hr class="note-divider" />
+          <p id="slideNote" class="note-text"></p>
+        </article>
+
+        <div class="nav-row">
+          <button id="prevButton" class="ghost-btn" type="button">previous</button>
+          <button id="nextButton" class="primary-btn" type="button">next</button>
+        </div>
+      </section>
+
+      <section id="outroScreen" class="outro-screen hidden">
+        <div class="intro-card">
+          <h2></h2>
+          <p class="intro-sub">i update this every now and then with memories that pop up in my head. just my little growing collection of us and what it means to me. i love you. esther</p>
+          <button id="restartButton" class="primary-btn" type="button">again</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
