@@ -111,12 +111,9 @@ async function initialize() {
     return;
   }
 
-  try {
-    const response = await fetch("./moments.json");
-    moments = await response.json();
-  } catch {
-    moments = [];
-  }
+  moments = [];
+  startButton.disabled = true;
+  startButton.textContent = "not available right now";
 }
 
 initialize().catch((error) => {
