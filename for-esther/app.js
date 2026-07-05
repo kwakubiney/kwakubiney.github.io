@@ -116,7 +116,11 @@ async function initialize() {
     if (hashId) {
       const targetIndex = moments.findIndex((moment) => moment.id === hashId);
       if (targetIndex !== -1) {
-        startButton.addEventListener("click", () => startSlideshow(targetIndex), { once: true });
+        currentSlideIndex = targetIndex;
+        introScreen.classList.add("hidden");
+        outroScreen.classList.add("hidden");
+        slideScreen.classList.remove("hidden");
+        renderSlide();
         return;
       }
     }
