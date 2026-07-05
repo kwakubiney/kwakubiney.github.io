@@ -13,23 +13,23 @@ const slideQuote = document.getElementById("slideQuote");
 const slideSpeaker = document.getElementById("slideSpeaker");
 const slideNote = document.getElementById("slideNote");
 
+const API_URL = "https://for-esther-api.fly.dev";
+
 let moments = [];
 let currentSlideIndex = 0;
 
 function isClusterSlide(moment) {
-  return moment.note && moment.note.length > 120 && moment.quote.includes("\n\n");
+  return moment.note && moment.note.length > 120 && moment.quote && moment.quote.includes("\n\n");
 }
 
 function renderSlide() {
   const moment = moments[currentSlideIndex];
-
   slideCounter.textContent = `${currentSlideIndex + 1} / ${moments.length}`;
-  slideDate.textContent = moment.date;
-  slideKicker.textContent = moment.section;
-  slideTitle.textContent = moment.title;
-  slideQuote.textContent = moment.quote;
-  slideSpeaker.textContent = moment.speakerLabel;
-  slideNote.textContent = moment.note || "";
+  slideDate.textContent = moment.date || moment.section || "";
+  slideKicker.textContent = moment.section || moment.date || "";
+  slideTitle.textContent = moment.title || "";
+  slideQuote.textContent = moment.quote || "";
+  slideSpeaker.textContent = moment.speaker_label || moment.speakerLabel || "";
 
   if (isClusterSlide(moment)) {
     slideQuote.classList.add("cluster");
@@ -37,6 +37,7 @@ function renderSlide() {
     slideQuote.classList.remove("cluster");
   }
 
+  slideNote.textContent = moment.note || "";
   prevButton.disabled = currentSlideIndex === 0;
   nextButton.textContent = currentSlideIndex === moments.length - 1 ? "finish" : "next";
 }
@@ -79,9 +80,43 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") prevButton.click();
 });
 
+function normalizeApiMemory(apiMemory) {
+  return {
+    section: apiMemory.section || "",
+    title: apiMemory.title || "",
+    date: apiMemory.section || "",
+    speakerLabel: apiMemory.speaker_label || "",
+    speaker_label: apiMemory.speaker_label || "",
+    quote: apiMemory.quote || "",
+    note: apiMemory.note || "",
+  };
+}
+
+async function tryLoadApi() {
+  try {
+    const response = await fetch(`${API_URL}/api/public/moments`);
+    if (!response.ok) return null;
+    const apiMemories = await response.json();
+    if (!apiMemories || apiMemories.length === 0) return null;
+    return apiMemories.map(normalizeApiMemory);
+  } catch {
+    return null;
+  }
+}
+
 async function initialize() {
-  const response = await fetch("./moments.json");
-  moments = await response.json();
+  const apiMemories = await tryLoadApi();
+  if (apiMemories && apiMemories.length > 0) {
+    moments = apiMemories;
+    return;
+  }
+
+  try {
+    const response = await fetch("./moments.json");
+    moments = await response.json();
+  } catch {
+    moments = [];
+  }
 }
 
 initialize().catch((error) => {
