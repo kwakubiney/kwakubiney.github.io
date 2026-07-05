@@ -41,8 +41,8 @@ function renderSlide() {
   prevButton.disabled = currentSlideIndex === 0;
   nextButton.textContent = currentSlideIndex === moments.length - 1 ? "finish" : "next";
 
-  if (moment.id) {
-    window.location.hash = String(moment.id);
+  if (moment.id && window.location.hash !== `#${moment.id}`) {
+    history.replaceState(null, "", `#${moment.id}`);
   }
 }
 
@@ -112,26 +112,32 @@ async function initialize() {
   if (apiMemories && apiMemories.length > 0) {
     moments = apiMemories;
 
-    const hashId = Number(window.location.hash.slice(1));
-    if (hashId) {
-      const targetIndex = moments.findIndex((moment) => moment.id === hashId);
-      if (targetIndex !== -1) {
-        currentSlideIndex = targetIndex;
-        introScreen.classList.add("hidden");
-        outroScreen.classList.add("hidden");
-        slideScreen.classList.remove("hidden");
-        renderSlide();
-        return;
-      }
+    if (!navigateToHash()) {
+      return;
     }
-
-    return;
   }
 
   moments = [];
   startButton.disabled = true;
   startButton.textContent = "not available right now";
 }
+
+function navigateToHash() {
+  const hashId = Number(window.location.hash.slice(1));
+  if (!hashId) return false;
+  const targetIndex = moments.findIndex((moment) => moment.id === hashId);
+  if (targetIndex === -1) return false;
+  currentSlideIndex = targetIndex;
+  introScreen.classList.add("hidden");
+  outroScreen.classList.add("hidden");
+  slideScreen.classList.remove("hidden");
+  renderSlide();
+  return true;
+}
+
+window.addEventListener("hashchange", () => {
+  navigateToHash();
+});
 
 initialize().catch((error) => {
   console.error(error);
