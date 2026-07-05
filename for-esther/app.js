@@ -40,13 +40,17 @@ function renderSlide() {
   slideNote.textContent = moment.note || "";
   prevButton.disabled = currentSlideIndex === 0;
   nextButton.textContent = currentSlideIndex === moments.length - 1 ? "finish" : "next";
+
+  if (moment.id) {
+    window.location.hash = String(moment.id);
+  }
 }
 
-function startSlideshow() {
+function startSlideshow(hashSlideIndex) {
   introScreen.classList.add("hidden");
   outroScreen.classList.add("hidden");
   slideScreen.classList.remove("hidden");
-  currentSlideIndex = 0;
+  currentSlideIndex = hashSlideIndex ?? 0;
   renderSlide();
 }
 
@@ -55,16 +59,14 @@ function showOutro() {
   outroScreen.classList.remove("hidden");
 }
 
-startButton.addEventListener("click", startSlideshow);
-restartButton.addEventListener("click", startSlideshow);
-
+startButton.addEventListener("click", () => startSlideshow());
+restartButton.addEventListener("click", () => startSlideshow());
 prevButton.addEventListener("click", () => {
   if (currentSlideIndex > 0) {
     currentSlideIndex -= 1;
     renderSlide();
   }
 });
-
 nextButton.addEventListener("click", () => {
   if (currentSlideIndex < moments.length - 1) {
     currentSlideIndex += 1;
@@ -82,6 +84,7 @@ document.addEventListener("keydown", (event) => {
 
 function normalizeApiMemory(apiMemory) {
   return {
+    id: apiMemory.id,
     section: apiMemory.section || "",
     title: apiMemory.title || "",
     date: apiMemory.section || "",
@@ -108,6 +111,16 @@ async function initialize() {
   const apiMemories = await tryLoadApi();
   if (apiMemories && apiMemories.length > 0) {
     moments = apiMemories;
+
+    const hashId = Number(window.location.hash.slice(1));
+    if (hashId) {
+      const targetIndex = moments.findIndex((moment) => moment.id === hashId);
+      if (targetIndex !== -1) {
+        startButton.addEventListener("click", () => startSlideshow(targetIndex), { once: true });
+        return;
+      }
+    }
+
     return;
   }
 
