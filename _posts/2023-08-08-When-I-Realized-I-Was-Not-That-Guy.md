@@ -1,6 +1,7 @@
 ---
 title: When I Realized I Was Not That Guy
 date: 2023-08-08 21:38:01 +0000
+section: personal
 categories: [Misc]
 tags: [Misc]
 ---

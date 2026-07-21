@@ -1,6 +1,7 @@
 ---
 title: Product has always been the bottleneck, it’s just clearer now
 date: 2026-03-18 12:00:00 +0000
+section: work
 categories: [Engineering]
 tags: [product, ai]
 ---

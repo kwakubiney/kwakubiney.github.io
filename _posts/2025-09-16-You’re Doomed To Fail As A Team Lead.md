@@ -1,6 +1,7 @@
 ---
 title: You’re Doomed To Fail As A Team Lead
 date: 2025-09-16 21:12:00 +0000
+section: work
 categories: [Leadership]
 tags: [misc]
 ---
