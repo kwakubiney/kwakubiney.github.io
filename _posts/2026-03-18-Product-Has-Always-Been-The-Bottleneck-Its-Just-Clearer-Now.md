@@ -2,8 +2,6 @@
 title: Product has always been the bottleneck, it’s just clearer now
 date: 2026-03-18 12:00:00 +0000
 section: work
-categories: [Engineering]
-tags: [product, ai]
 ---
 
 If you’ve been doing engineering in a big enough company for a while now, you are probably aware of the process most companies with a substantial number of people use. Engineers wait for the go ahead to build some product that management has identified to solve a market gap. Now, in most big enough teams, what happens is that management or product identify market gaps, and there’s a lot of ideation that goes on around what the business should build. And this ideation, if you're doing it right, takes a lot of time and a lot of effort to get the right product built.

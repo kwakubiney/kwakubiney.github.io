@@ -2,8 +2,6 @@
 title: UDP Tunneling With SafeHaven
 date: 2023-07-31 17:12:01 +0000
 section: work
-categories: [Linux, Go]
-tags: [Networking]
 ---
 
 For a few months, I have been exploring tools which heavily utilize the Linux networking stack to do some cool stuff. Came across [Cilium](https://cilium.io/) and [Tailscale](https://tailscale.com/) too! Making a few [contributions](https://github.com/cilium/ebpf/commits?author=kwakubiney) to the Cilium project piqued my interest in the kernel networking domain, and I decided to build a collection of projects which will enhance my knowledge of how certain networking tools are built. The first one I set out to build was `SafeHaven`, a configurable product to illustrate how virtual private networks work!

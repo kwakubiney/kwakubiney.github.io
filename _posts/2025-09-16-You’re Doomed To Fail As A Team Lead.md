@@ -2,8 +2,6 @@
 title: You’re Doomed To Fail As A Team Lead
 date: 2025-09-16 21:12:00 +0000
 section: work
-categories: [Leadership]
-tags: [misc]
 ---
 
 I don’t know how I feel about technical leadership. Sitting at this position makes me realise that most processes run on experiments and are as trial and error as it gets. Being a team lead is one of the most confusing positions ever. Especially when everyone else feels like you’re at the next level where you can delegate when you feel like you’re learning new things everyday technically.

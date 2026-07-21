@@ -2,8 +2,6 @@
 title: When I Realized I Was Not That Guy
 date: 2023-08-08 21:38:01 +0000
 section: personal
-categories: [Misc]
-tags: [Misc]
 ---
 
 A discussion about a design question on the DevCongress slack today brought back a very funny but revealing period in my life so I decided to write about it! So earlier in 2022, I had just started diving into the world of low level engineering. Fascinated by all these talks made by engineers who had done crazy things in the CS world, I could not wait to get my hands dirty. At the time I was building [Remixify](https://github.com/kwakubiney/remixify), which did not really do so well, because there was zero promo for it and just when I was about to release it, Heroku took away the free tier and I said flip it. It’s rotting on my GitHub somewhere at the moment. 
