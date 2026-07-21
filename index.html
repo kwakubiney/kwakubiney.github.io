@@ -1,4 +1,59 @@
 ---
-layout: home
-# Index page
+layout: page
+title: Home
 ---
+
+{% assign personal_posts = site.posts | where: "section", "personal" | sort: "date" | reverse %}
+{% assign work_posts = site.posts | where: "section", "work" | sort: "date" | reverse %}
+
+<div class="row">
+  <div class="col-12 col-lg-6 mb-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h2 class="card-title">Personal</h2>
+        <p class="card-text">
+          Life updates, reflection, friendship, recovery, and the more human side of things.
+        </p>
+        <p class="mb-4">
+          <a href="{{ '/personal/' | relative_url }}">Go to Personal</a>
+        </p>
+
+        <h3 class="h5">Recent posts</h3>
+        <ul class="mb-0">
+          {% for post in personal_posts limit:3 %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <br>
+              <small>{{ post.date | date: "%b %-d, %Y" }}</small>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-6 mb-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h2 class="card-title">Work</h2>
+        <p class="card-text">
+          Engineering, leadership, systems, product friction, and job-shaped problems.
+        </p>
+        <p class="mb-4">
+          <a href="{{ '/work/' | relative_url }}">Go to Work</a>
+        </p>
+
+        <h3 class="h5">Recent posts</h3>
+        <ul class="mb-0">
+          {% for post in work_posts limit:3 %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <br>
+              <small>{{ post.date | date: "%b %-d, %Y" }}</small>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
