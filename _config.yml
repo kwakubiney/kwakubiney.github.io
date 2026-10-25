@@ -26,22 +26,11 @@ description: >- # used by seo meta and the atom feed
   A little documentation of my journey in rabbit holes
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: "https://kwakubiney.github.io"
-
-github:
-  username: kwakubiney
-
-twitter:
-  username: kwakubiney_ 
+url: "https://kwakubiney.com"
 
 social:
   name: Kwaku Biney
   email: kwakubiney@gmail.com # change to your email address
-  links:
-    # The first element serves as the copyright owner's link
-    - https://twitter.com # change to your twitter homepage
-    - https://github.com/kwakubiney # change to your github homepage
-    - https://www.linkedin.com
 
 google_site_verification: # fill in to your verification string
 
@@ -62,7 +51,7 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode: # [light|dark]
+theme_mode: light
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
@@ -171,6 +160,8 @@ compress_html:
     envs: [development]
 
 exclude:
+  # Keep media from unpublished personal posts in the repository, but off the site.
+  - assets/media
   - "*.gem"
   - "*.gemspec"
   - tools

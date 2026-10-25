@@ -2,6 +2,7 @@
 title: I don’t think this is guilt
 date: 2026-08-16 23:41:57 +0000
 section: personal
+published: false
 ---
 
 I don’t think this is guilt 

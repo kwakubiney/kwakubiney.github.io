@@ -2,6 +2,7 @@
 title: Thursday the 13th (Post emotional whirlwind rambling)
 date: 2026-08-13 04:13:26 +0000
 section: personal
+published: false
 ---
 
 This is a pretty rushed post, I am up, was watching ISWIS and side-note, Akinola Davies Jr. is a really fresh boy, his suggestions to the listener dilemmas are pretty funny and witty, but unfortunately couldn’t finish the episode. Today’s been a hard evening. Let me try and see if I can document it or put it out there cos I feel like writing something. ~ 48 hours ago, I had a very hard conversation with someone I have known for about a decade, but at the end of the call I realised, and we realised, they don’t know me, and I don’t also know myself well enough, and that’s pretty much the entirety of it. Consequentially there’s no reason for that relationship to exist anymore, especially because I have a lot to fix in my life and my approach to human relationships. Tbh, it was actually a suggestion I made, borne out of fear that it would happen abruptly so I sort of was prepping for it, and was hoping it wouldn’t happen but it did, you get the drift, who cares if u do? It’s my blog. So that’s there, and has been lingering on my mind for the past 24 hours. But that’s just by the way mehn, just to set the tone for the rest of the evening. My bed broke today too, need to change this bed. I also took a walk today.
