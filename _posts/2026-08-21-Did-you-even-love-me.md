@@ -3,7 +3,7 @@ title: Did you even love me?
 display_title: "<del>Did you even love me?</del> She definitely did, I’m tripping"
 date: 2026-08-21 00:16:39 +0000
 section: personal
-published: false
+published: true
 ---
 
 Before you go HAM and think oh, what’s this guy even saying? That is, we wouldn’t be here if I didn’t cheat on you, I know. That’s not the point of this article (I needed to put this disclaimer out there for my own conscience)

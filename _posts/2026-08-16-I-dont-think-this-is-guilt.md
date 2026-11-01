@@ -2,7 +2,7 @@
 title: I don’t think this is guilt
 date: 2026-08-16 23:41:57 +0000
 section: personal
-published: false
+published: true
 ---
 
 I don’t think this is guilt 
@@ -13,6 +13,6 @@ girl in the world. Telling her i wanted to marry her. But the foundation had so 
 This bled into today, i’m literally seated on the floor in the hall; and i chanced on a video in my camera roll. She’s singing a song by Nicki Minaj (Marilyn Monroe) on one of our numerous Friday meetups. I was going to delete it but lowkey made me happy, i missed her voice, and her smile, and her quirky taste. I want to redo life with all I know now because that was truly the love of my life. I don’t think I was hers, she’s way too great to have me as the love of her life, the universe would want more for her. 
 
 <audio controls preload="metadata" aria-label="Marilyn Monroe singing excerpt" style="display: block; width: 100%; margin: 1.25rem 0 2rem;">
-  <source src="/assets/media/marilyn-monroe-singing-excerpt.m4a" type="audio/mp4">
+  <source src="/assets/audio/marilyn-monroe-singing-excerpt.m4a" type="audio/mp4">
   Your browser does not support embedded audio.
 </audio>
