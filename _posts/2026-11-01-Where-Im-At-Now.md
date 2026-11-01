@@ -4,7 +4,7 @@ date: 2026-11-01 21:00:00 +0000
 section: personal
 ---
 
-So it's been a couple of months and I don't know how I feel right now. I still go through days thinking about her and also battling a lot of loneliness and regret. But a lot has happened ever since she and I broke up, as documented on this page, and I want to talk about where I'm at now and how I feel about doing things.
+So it's been a couple of months and I don't know how I feel right now. I still go through days thinking about her and also battling a lot of loneliness and regret. But a lot has happened ever since she and I broke up, as documented on this page, and I want to talk about where I'm at now and how I feel about things.
 
 I think the first thing that I have acknowledged is that I'm not as great as I think I am. That there's a lot of things wrong with me. That even though my mind and my heart tell me that I love somebody, I don't act as such.
 
@@ -23,6 +23,8 @@ And shout out to my two friends that listen to me. That chastise me, that tell m
 You know the thing that actually is so crazy, and what stays in my mind, is sometimes I just think about things like, oh, she's about to graduate, maybe she must be excited. Or she probably got her new job. Maybe something happened, or maybe she moved. She finally moved to the new house. I saw one of her friends tweet, “Oh my God, my favorite person is going to be my neighbor.” And I was like, oh, probably she's about to move now. All these experiences I never got into because I was an idiot.
 
 I went to Nairobi recently and I couldn't even share my experiences with you. We said we were gonna do vlogs. And I'm walking through the city and all that couldn't happen. I'm going to Berlin next year. You also wouldn't be able to experience that with me, although we discussed it. There's all the plans we discussed, all the things that we discussed. It's like I just ruined everything.
+
+Wow, I can't believe our anniversary is in a week. This is so fucking crazy. Oh, our anniversary should have been in a week. Like, I'm such a fucking fool.
 
 You probably hate me. You think I lied about my feelings, you think I never loved you and all that stuff, which is valid. From your perspective, I will never go against anything you're feeling. But I can only speak for me, and I knew I really did love you. I love you so much. I still love you. Which is fucking crazy. But yeah. Just take care of yourself and just know that it was never your fault. You were the best ever. You were amazing.
 
